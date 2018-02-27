@@ -6,11 +6,11 @@ class Ingredient < ApplicationRecord
       self.order(name: :asc)
   end
 
-  #def quantity
-  #   if !self.new_record?
-  #     recipe_ingredient = RecipeIngredient.find_by(recipe_id: self.recipes.first.id, ingredient_id: self.id)
-  #     recipe_ingredient.quantity
-  #   end
-   #end
+  def quantity
+     if !self.new_record?
+       recipe_ingredient = RecipeIngredient.find_by(recipe_id: self.recipes.first.id, ingredient_id: self.id)
+       recipe_ingredient.quantity
+     end
+  end
 
 end

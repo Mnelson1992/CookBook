@@ -6,6 +6,9 @@ class RecipesController < ApplicationController
     8.times do
       ingredient = @recipe.ingredients.build
     end
+    8.times do
+     @recipe.recipe_ingredients.build
+    end 
   end
 
   def index
@@ -22,8 +25,10 @@ class RecipesController < ApplicationController
   end
 
   def show
+
       @recipe = Recipe.find(params[:id])
       @ingredients = @recipe.ingredients.alphabetical
+      @ri = RecipeIngredient.find(params[:id])
   end
 
   def edit
@@ -48,7 +53,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, :cooktime, :ingredient_ids => [], ingredients_attributes: [:recipe_id, :name])
+    params.require(:recipe).permit(:name, :instructions, :cooktime, :ingredient_ids => [], ingredients_attributes: [:recipe_id, :quantity, :name])
   end
 
 end

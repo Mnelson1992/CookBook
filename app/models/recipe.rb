@@ -15,10 +15,9 @@ class Recipe < ApplicationRecord
   def ingredients_attributes=(ingredients_attributes)
     self.ingredients = []
     ingredients_attributes.values.each do |ingredients_attribute|
-      if !ingredients_attribute.empty?
-        new_ingredient = Ingredient.find_or_create_by(ingredients_attribute)
-        #new_ingredient.build(ingredients_attribute)
-        self.ingredients << new_ingredient if !self.ingredients.include?(new_ingredient)
+      if !ingredients_attribute[:name].empty?
+        new_ingredient = Ingredient.find_or_create_by(name: ingredients_attribute[:name])
+        self.recipe_ingredients.build(ingredient_id: new_ingredient.id, quantity: ingredients_attribute[:quantity])
       end
     end
   end
