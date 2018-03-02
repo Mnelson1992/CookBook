@@ -11,7 +11,7 @@
   <body>
 
     <%=render 'layouts/shared/navbar' %>
-    
+
     <div class="wrapper">
 
 
@@ -19,7 +19,5 @@
   </body>
 
   <footer class = "branding">
-    <% if user_signed_in? %>
-      <%= link_to("Sign Out", destroy_user_session_path, :method => 'delete') %>
-    <%end%>
+
 </html>
