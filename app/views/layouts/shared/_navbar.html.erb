@@ -3,12 +3,31 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="recipes">Recipes</a>
-      <a class="nav-item nav-link" href="#">Add A Recipe</a>
-      <a class="nav-item nav-link" href="#">Ingredients</a>
-    </div>
-  </div>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to "Recipes", recipes_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add A Recipe", new_recipe_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign In", new_user_session_path, id: "Sign In", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign In with Facebook", user_facebook_omniauth_authorize_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign Up", new_user_registration_path, id: "Sign Up", class: "nav-link" %>
+      </li>
+      <% end %>
+    </ul>
 </nav>
