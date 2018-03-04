@@ -4,8 +4,8 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ingredients = @recipe.ingredients.alphabetical
 
+    @ingredients = @recipe.ingredients.alphabetical
   end
 
   def show

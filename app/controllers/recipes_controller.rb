@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     end
     8.times do
      @recipe.recipe_ingredients.build
-    end 
+    end
   end
 
   def index
@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
 
       @recipe = Recipe.find(params[:id])
       @ingredients = @recipe.ingredients.alphabetical
-      @ri = RecipeIngredient.find(params[:id])
+  
   end
 
   def edit
