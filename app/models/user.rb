@@ -4,8 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 <<<<<<< HEAD
+<<<<<<< HEAD
 
          devise :omniauthable, :omniauth_providers => [:facebook]
+=======
+  devise :omniauthable, :omniauth_providers => [:facebook]
+>>>>>>> parent of 4432729... updated the spec file
 =======
   devise :omniauthable, :omniauth_providers => [:facebook]
 >>>>>>> parent of 4432729... updated the spec file
