@@ -1,3 +1,21 @@
 <h1> Welcome to the CookBook!</h1>
 
+<<<<<<< HEAD
   
+=======
+  <% if !user_signed_in? %>
+    <%=link_to "Sign Up", new_user_registration_path %>
+    <br>
+    <%=link_to "Sign In", user_session_path %>
+    <br>
+    
+  <%else%>
+    <h1> Logged in as <%=current_user.email%>!</h1>
+
+    <%#=link_to "View Recipes", recipes_path%>
+
+    <%=link_to "Add A Recipe", new_recipe_path %>
+    <br>
+
+  <%end%>
+>>>>>>> parent of 4432729... updated the spec file
