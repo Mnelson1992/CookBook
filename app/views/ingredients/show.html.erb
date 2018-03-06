@@ -1,10 +1,4 @@
 <h1> Ingredient: <%=@ingredient.name%></h1>
-<ul>
-<h3> Recipes that use this ingredient </h3>
-<% @ingredient.recipes.each do |recipe| %>
-  <li><%= link_to recipe.name, recipe_path(recipe)%>
-<%end%>
-</ul>
-<%=link_to "Ingredients", recipe_ingredients_path(@recipe, @ingredients)%>
-<br>
+
+
 <%=link_to "Delete Ingredient", recipe_ingredient_path(@recipe, @ingredient), :method => "delete" %>
