@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   validates :instructions, length: {minimum: 5}
   validates :cooktime, presence: true
 
-  def self.alphabetical
+  def self.alphabetize
       self.order(name: :asc)
   end
 

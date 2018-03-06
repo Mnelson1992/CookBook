@@ -5,7 +5,7 @@ class IngredientsController < ApplicationController
 
   def index
 
-    @ingredients = @recipe.ingredients.alphabetical
+    @ingredients = @recipe.ingredients.alphabetize
   end
 
   def show
@@ -35,7 +35,7 @@ class IngredientsController < ApplicationController
 
   private
   def ingredients_params
-    params.require(:ingredient).permit(:name, :quantity, :recipe_id)
+    params.require(:ingredient).permit(:name, :recipe_id)
   end
 
   def set_recipe
