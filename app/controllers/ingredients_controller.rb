@@ -29,8 +29,8 @@ class IngredientsController < ApplicationController
     redirect_to recipe_ingredients_path(@recipe, @ingredients)
   end
 
-
   private
+
   def ingredients_params
     params.require(:ingredient).permit(:name, :recipe_id)
   end

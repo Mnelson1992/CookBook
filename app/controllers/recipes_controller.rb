@@ -8,21 +8,21 @@ class RecipesController < ApplicationController
   end
 
   def index
-      @recipes = current_user.recipes.alphabetize
+    @recipes = current_user.recipes.alphabetize
   end
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-        if @recipe.save
-          redirect_to recipe_path(@recipe)
-        else
-          render :new
-        end
+      if @recipe.save
+        redirect_to recipe_path(@recipe)
+      else
+        render :new
+      end
   end
 
   def show
-      @recipe = Recipe.find(params[:id])
-      @ingredients = @recipe.ingredients.alphabetize
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients.alphabetize
   end
 
   def edit
@@ -43,6 +43,7 @@ class RecipesController < ApplicationController
     @recipe.delete
     redirect_to recipes_path
   end
+  
   private
 
   def recipe_params
