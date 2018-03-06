@@ -9,8 +9,8 @@
   <li><%=ingredient.name %> - <%=ingredient.quantity%></li>
 <%end%>
 </ul>
-<%=button_to "Ingredients", recipe_ingredients_path(@recipe, @ingredients)%>
+<%=link_to "Ingredients", recipe_ingredients_path(@recipe)%>
 
-<%=button_to "Delete Recipe", recipe_path(@recipe), :method => "delete" %>
+<%=link_to "Delete Recipe", recipe_path(@recipe), :method => "delete" %>
 
-<%=button_to "Edit Recipe", edit_recipe_path(@recipe) %>
+<%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
