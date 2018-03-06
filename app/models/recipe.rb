@@ -4,13 +4,12 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
 
   validates :name, presence: true
-  validates :instructions, length: {minimum: 5}
+  validates :instructions, presence: true
   validates :cooktime, presence: true
 
   def self.alphabetize
       self.order(name: :asc)
   end
-
 
   def ingredients_attributes=(ingredients_attributes)
     self.ingredients = []

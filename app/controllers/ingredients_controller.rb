@@ -4,13 +4,10 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
-
     @ingredients = @recipe.ingredients.alphabetize
   end
 
   def show
-  #  @ingredient = @recipe.ingredients
-  #  @recipes = @recipe.imngredients.where('user' = ?, current_user.id == @recipe.user_id)
   end
 
   def new

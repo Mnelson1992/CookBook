@@ -3,12 +3,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    8.times do
-      ingredient = @recipe.ingredients.build
-    end
-    8.times do
-     @recipe.recipe_ingredients.build
-    end
+    8.times {ingredient = @recipe.ingredients.build}
+    8.times {@recipe.recipe_ingredients.build}
   end
 
   def index
