@@ -5,7 +5,7 @@
 </ul>
 <h4> Ingredients: </h4>
 
-<% @ingredients.each do |ingredient|%>
+<% @recipe.ingredients.each do |ingredient|%>
   <li><%=ingredient.name %> - <%=ingredient.quantity%></li>
 <%end%>
 </ul>
