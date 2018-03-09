@@ -5,11 +5,11 @@
 </ul>
 <h4> Ingredients: </h4>
 
-<% @recipe.ingredients.each do |ingredient|%>
-  <li><%=ingredient.name %> - <%=ingredient.quantity%></li>
+<% @recipe.recipe_ingredients.each do |recipe_ingredient|%>
+  <li><%=recipe_ingredient.name %> - <%=recipe_ingredient.quantity%> </li>
 <%end%>
 </ul>
-<%=link_to "Ingredients", recipe_ingredients_path(@recipe)%>
+<%=link_to "Ingredients Details", recipe_ingredients_path(@recipe)%>
 <br>
 <%=link_to "Delete Recipe", recipe_path(@recipe), :method => "delete" %>
 <br>

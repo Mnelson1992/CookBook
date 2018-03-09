@@ -3,7 +3,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    8.times {ingredient = @recipe.ingredients.build}
+
+    #8.times {ingredient = @recipe.ingredients.build}
     8.times {@recipe.recipe_ingredients.build}
   end
 
@@ -24,7 +25,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.ingredients.alphabetize
+  
+    @ingredients = @recipe.recipe_ingredients
   end
 
   def edit
@@ -51,7 +53,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, :cooktime, ingredients_attributes: [:recipe_id, :quantity, :name])
+    params.require(:recipe).permit(:name, :instructions, :cooktime, recipe_ingredients_attributes: [:recipe_id, :quantity, :name])
   end
 
 end

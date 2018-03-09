@@ -33,7 +33,7 @@
   </div>
 
   <h1> Add Ingredients</h1>
-    <%= f.fields_for :ingredients, @ingredient do |ingredient_fields| %>
+    <%= f.fields_for :recipe_ingredients do |ingredient_fields| %>
     <br>
     <div class = >
        <%= ingredient_fields.label :name, "Ingredient" %>
