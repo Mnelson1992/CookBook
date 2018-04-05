@@ -3,7 +3,6 @@ class RecipeIngredient < ApplicationRecord
   belongs_to :ingredient, required: false
 
   def name=(name)
-
     ingredient = Ingredient.find_or_create_by(name: name)
     self.ingredient = ingredient
   end

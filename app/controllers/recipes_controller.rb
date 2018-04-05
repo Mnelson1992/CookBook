@@ -3,7 +3,6 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-
     #8.times {ingredient = @recipe.ingredients.build}
     8.times {@recipe.recipe_ingredients.build}
   end
@@ -15,7 +14,6 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.user = current_user
-
       if @recipe.save
         redirect_to recipe_path(@recipe)
       else
@@ -26,7 +24,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-
     @ingredients = @recipe.recipe_ingredients
   end
 
