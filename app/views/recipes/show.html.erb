@@ -2,16 +2,24 @@
 
 <h4>Recipe Instructions: <%=@recipe.instructions%></h4>
 <h4>Cook Time: <%=@recipe.cooktime%></h4>
-</ul>
+<ul>
 <h4> Ingredients: </h4>
 
 <% @recipe.recipe_ingredients.each do |recipe_ingredient|%>
   <li><%=recipe_ingredient.name %> - <%=recipe_ingredient.quantity%> </li>
 <%end%>
 </ul>
-<%= button_to('Ingredients Details', recipe_ingredients_path(@recipe),method: :get, class: 'btn btn-light')  %>
-<br>
-<%= button_to('Delete Recipe', recipe_path(@recipe),:method => "delete", class: 'btn btn-light')  %>
-<br>
-<%= button_to('Edit Recipe', edit_recipe_path(@recipe),method: :get, class: 'btn btn-light')  %>
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <%= button_to('Ingredients Details', recipe_ingredients_path(@recipe),method: :get, class: 'btn btn-light')  %>
+    </div>
+    <div class="col-sm">
+      <%= button_to('Delete Recipe', recipe_path(@recipe),:method => "delete", class: 'btn btn-light')  %>
+    </div>
+    <div class="col-sm">
+      <%= button_to('Edit Recipe', edit_recipe_path(@recipe),method: :get, class: 'btn btn-light')  %>
+
+    </div>
+  </div>
+</div>
