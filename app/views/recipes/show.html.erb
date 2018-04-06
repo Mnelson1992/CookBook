@@ -11,15 +11,14 @@
 </ul>
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-md-4">
       <%= button_to('Ingredients Details', recipe_ingredients_path(@recipe),method: :get, class: 'btn btn-light')  %>
     </div>
-    <div class="col-sm">
+    <div class="col-md-4">
       <%= button_to('Delete Recipe', recipe_path(@recipe),:method => "delete", class: 'btn btn-light')  %>
     </div>
-    <div class="col-sm">
+    <div class="col-md-4">
       <%= button_to('Edit Recipe', edit_recipe_path(@recipe),method: :get, class: 'btn btn-light')  %>
-
     </div>
   </div>
 </div>
