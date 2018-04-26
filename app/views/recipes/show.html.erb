@@ -2,13 +2,11 @@
 
 <h4>Recipe Instructions: <%=@recipe.instructions%></h4>
 <h4>Cook Time: <%=@recipe.cooktime%></h4>
-<ul>
-<h4> Ingredients: </h4>
-
-<% @recipe.recipe_ingredients.each do |recipe_ingredient|%>
-  <li><%=recipe_ingredient.name %> - <%=recipe_ingredient.quantity%> </li>
-<%end%>
+<div id="ingredients_detail">
+<button type="button" id="ingredients" data-id="<%=@recipe.id%>">Get Ingredients</button>
+<ul id="ingredients_list">
 </ul>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-4">
