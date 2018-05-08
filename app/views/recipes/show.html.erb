@@ -1,8 +1,8 @@
 <a href="#" id="nextRecipe" data-id="<%= @recipe.id%>">Next Recipe</a>
-<h1> Recipe for <%=@recipe.name%></h1>
+<h1 id="recipeName"> Recipe for <%=@recipe.name%></h1>
 
-<h4>Recipe Instructions: <%=@recipe.instructions%></h4>
-<h4>Cook Time: <%=@recipe.cooktime%></h4>
+<h4 id="recipeInstructions">Recipe Instructions: <%=@recipe.instructions%></h4>
+<h4 id="recipeCooktime">Cook Time: <%=@recipe.cooktime%></h4>
 <div id="ingredients_detail">
 <button type="button" id="ingredients" data-id="<%=@recipe.id%>">Get Ingredients</button>
 <ul id="ingredients_list">
