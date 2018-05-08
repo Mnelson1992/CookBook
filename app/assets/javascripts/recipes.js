@@ -1,3 +1,4 @@
+//set up the document ready function
 $(document).ready(function(){
 
   $('#ingredients').on('click', function(){
