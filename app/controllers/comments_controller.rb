@@ -4,4 +4,6 @@ class CommentsController < ApplicationController
    @comments = @recipe.comments.order(created_at: :asc)
    render json: @comments, status: 200
  end
+
+ 
 end
