@@ -21,6 +21,19 @@ Ingredient.prototype.render = function() {
   return `<li>${this.name} -- ${this.quantity}</li>`
 }
 
+$(".nextRecipe").on("click", function() {
+
+    var nextId = parseInt($(this).attr("data-id")) + 1;
+    $.get("/recipes/" + nextId + ".json", function(data) {
+      var recipe = data;
+      $(".recipeName").text(recipe["name"]);
+      $(".recipeInstructions").text(recipe["instructions"]);
+      $(".recipeCooktime").text(recipe["cooktime"]);
+      // re-set the id to current on the link
+      $(".nextRecipe").attr("data-id", recipe["id"]);
+    });
+  });
+
 
 
 })

@@ -25,6 +25,10 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.recipe_ingredients
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @recipe, status: 200}
+    end
   end
 
   def edit
