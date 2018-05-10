@@ -21,10 +21,10 @@ Ingredient.prototype.render = function() {
   return `<li>${this.name} -- ${this.quantity}</li>`
 }
 
-$(".nextRecipe").on("click", function() {
-
+$(".nextRecipe").on("click", function(event) {
+    event.preventDefault()
     var nextId = parseInt($(this).attr("data-id")) + 1;
-    $.get("/recipes/" + nextId + ".json", function(data) {
+    $.get("http://localhost:3000/recipes/" + nextId + ".json", function(data) {
       var recipe = data;
       $(".recipeName").text(recipe["name"]);
       $(".recipeInstructions").text(recipe["instructions"]);

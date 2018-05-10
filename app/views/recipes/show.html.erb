@@ -9,12 +9,15 @@
 </ul>
 </div>
 
-<div id="comments"></div>
-<button id="showComments" type="button" data-id="<%=@recipe.id%>">Show Comments</button>
 
-<div id="newCommentDiv"></div>
-  <button type="button" id="addComment" data-id="<%@recipe.id%>">Add Comments</button>
-<%#= form_for(@recipe, @comment)%>
+
+
+<%= form_for([@recipe, @comment]) do |f|%>
+  <%=f.label :body, "Comment" %>
+  <%=f.text_field :body %><br>
+  <%=f.submit%>
+<%end%>
+
 
 
 

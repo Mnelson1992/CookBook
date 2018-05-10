@@ -20,11 +20,14 @@ class RecipesController < ApplicationController
         render :new
       end
     end
+    render json: @recipe, statu: 201
   end
 
   def show
     @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.recipe_ingredients
+    @comment = @recipe.comments
+    @comment = Comment.new
     respond_to do |format|
       format.html {render :show}
       format.json {render json: @recipe, status: 200}
