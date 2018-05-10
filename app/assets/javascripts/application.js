@@ -17,3 +17,4 @@
 //= require popper
 //= require bootstrap
 //= require recipes
+//= require comments
