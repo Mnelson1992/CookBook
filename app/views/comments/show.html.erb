@@ -1,3 +1,5 @@
+<ul>
 <% @comments.each do |comment| %>
-  <%=comment.body%>
+  <li><em>"<%=comment.body%>"</em> -- <strong><%=current_user.email%></strong></li>
 <%end%>
+</ul>
