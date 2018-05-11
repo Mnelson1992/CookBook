@@ -24,7 +24,27 @@
   <%=f.submit%>
 <%end%>
 
+<div id="commentResult">
+  <p id="commentBody"></p>
+</div>
 
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var posting = $.post('/recipes/' + <%=@recipe.id%> + '/comments', values);
+
+      posting.done(function(data) {
+        var recipe = data;
+        $("#commentBody").text(recipe["body"]);
+      });
+    });
+  });
+</script
 
 
 <div class="container">
