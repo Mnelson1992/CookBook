@@ -9,11 +9,7 @@
 </ul>
 </div>
 
-<div class="comments_detail">
-  <p><button id="showComments" type="button" data-id="<%= @recipe.id %>">Show Comments</button></p>
-<ul id="comments_list">
-</ul>
-</div>
+
 
 <%= form_for([@recipe, @comment]) do |f|%>
   <%=f.label :body, "Comment:" %><br>
@@ -41,8 +37,13 @@
       });
     });
   });
-</script
+</script>
 
+<div class="comments_detail">
+  <p><button id="showComments" type="button" data-id="<%= @recipe.id %>" >Show Comments</button></p>
+<ul id="comments_list">
+</ul>
+</div>
 
 <div class="container">
   <div class="row">
