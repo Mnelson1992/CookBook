@@ -14,6 +14,7 @@
 <%= form_for([@recipe, @comment]) do |f|%>
   <%=f.label :body, "Comment:" %><br>
   <%=f.text_area :body %><br>
+  <%= f.hidden_field :user_id, :value => @user.id %>
   <%=f.submit "Add Comment"%>
 <%end%>
 
@@ -21,26 +22,10 @@
   <p id="commentBody"></p>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-  $(function () {
-    $('form').submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
 
-      var values = $(this).serialize();
-
-      var posting = $.post('/recipes/' + <%=@recipe.id%> + '/comments', values);
-
-      posting.done(function(data) {
-        var recipe = data;
-        $("#commentBody").text(recipe["body"]);
-      });
-    });
-  });
-</script>
 
 <div class="comments_detail">
-  <p><button id="showComments" type="button" data-id="<%= @recipe.id %>" >Show Comments</button></p>
+  <p><button id="showComments" type="button" data-id="<%= @recipe.id %>" name="<%= @recipe.id %>" >Show Comments</button></p>
 <ul id="comments_list">
 </ul>
 </div>
