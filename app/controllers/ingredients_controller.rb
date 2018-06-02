@@ -2,6 +2,7 @@ class IngredientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_recipe
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
+  
 
   def index
     @ingredients = @recipe.ingredients.alphabetize
@@ -9,7 +10,7 @@ class IngredientsController < ApplicationController
       format.html
       format.json {render json: @ingredients}
     end
-  end    
+  end
 
   def show
   end

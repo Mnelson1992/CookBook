@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
   $('#ingredients').on('click', function(){
-    $('#ingredients_list').html('')
+    //$('#ingredients_list').html('')
     const id = $(this).data('id')
     $.get(`http://localhost:3000/recipes/${id}/ingredients.json`, function(data){
       data.forEach(function(ingredient){
@@ -26,12 +26,12 @@ $(".nextRecipe").on("click", function(event) {
     event.preventDefault()
     const nextId = parseInt($(this).attr("data-id")) + 1;
     $.get("http://localhost:3000/recipes/" + nextId + ".json", function(data) {
-      var recipe = data;
-      $(".recipeName").text(recipe["name"]);
-      $(".recipeInstructions").text(recipe["instructions"]);
-      $(".recipeCooktime").text(recipe["cooktime"]);
+      //var recipe = data;
+      $(".recipeName").text(data["name"]);
+      $(".recipeInstructions").text(data["instructions"]);
+      $(".recipeCooktime").text(data["cooktime"]);
       // re-set the id to current on the link
-      $(".nextRecipe").attr("data-id", recipe["id"]);
+      $(".nextRecipe").attr("data-id", data["id"]);
     });
   });
 
