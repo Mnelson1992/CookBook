@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
   $('#ingredients').on('click', function(){
+    $('#ingredients_list').html('')
     const id = $(this).data('id')
     $.get(`http://localhost:3000/recipes/${id}/ingredients.json`, function(data){
       data.forEach(function(ingredient){
@@ -23,7 +24,7 @@ Ingredient.prototype.render = function() {
 
 $(".nextRecipe").on("click", function(event) {
     event.preventDefault()
-    var nextId = parseInt($(this).attr("data-id")) + 1;
+    const nextId = parseInt($(this).attr("data-id")) + 1;
     $.get("http://localhost:3000/recipes/" + nextId + ".json", function(data) {
       var recipe = data;
       $(".recipeName").text(recipe["name"]);
