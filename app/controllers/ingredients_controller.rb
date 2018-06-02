@@ -9,7 +9,7 @@ class IngredientsController < ApplicationController
       format.html
       format.json {render json: @ingredients}
     end
-  end
+  end    
 
   def show
   end
