@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<head>
+  <%= csrf_meta_tags%>
 <a href="#" class="nextRecipe" data-id="<%=@recipe.id%>">Next Recipe</a>
 <h1 class="recipeName"> Recipe for <%=@recipe.name%></h1>
 <h4 class="recipeInstructions">Recipe Instructions: <%=@recipe.instructions%></h4>
@@ -10,13 +13,15 @@
 </div>
 
 
-
-<%= form_for([@recipe, @comment]) do |f|%>
-  <%=f.label :body, "Comment:" %><br>
-  <%=f.text_area :body %><br>
-  <%= f.hidden_field :user_id, :value => @user.id %>
-  <%=f.submit "Add Comment", class: 'btn btn-light'%>
-<%end%>
+<div id="comment_form">
+  <%= form_for([@recipe, @comment]) do |f|%>
+    <%=f.label :body, "Comment:" %><br>
+    <%=f.text_area :body %><br>
+    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
+    <%=f.submit "Add Comment", class: 'btn btn-light'%>
+  <%end%>
+</div>
 
 <div id="commentResult">
   <p id="commentBody"></p>

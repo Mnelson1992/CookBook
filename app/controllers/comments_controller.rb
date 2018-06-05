@@ -1,11 +1,17 @@
 class CommentsController < ApplicationController
+  protect_from_forgery prepend: true, with: :exception
+  before_action :authenticate_user!
+
 
  def create
    @recipe = Recipe.find(params[:recipe_id])
    @user = current_user
    @comment = @recipe.comments.create(comment_params)
    @user.comments << @comment
-   render json: @comment, status: 200
+   respond_to do |format|
+     format.html {redirect_to recipe_comments_path}
+     format.json {render json: @comment, status: 200}
+   end
  end
 
  def index

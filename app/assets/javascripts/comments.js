@@ -4,14 +4,15 @@ $(document).ready(function(){
   formSubmit()
 })
 
+
 function showComments() {
   $('#showComments').on('click', function(){
    $('#comments_list').html('')
     const id = $(this).data('id')
     $.get(`http://localhost:3000/recipes/${id}/comments.json`, function(data){
       data.sort(function (a, b){
-        var bodyA = a.body.toUpperCase(); // ignore upper and lowercase
-        var bodyB = b.body.toUpperCase()
+        let bodyA = a.body.toUpperCase(); // ignore upper and lowercase
+        let bodyB = b.body.toUpperCase()
           if (bodyA < bodyB) {
             return -1;
           }
@@ -27,13 +28,15 @@ function showComments() {
   })
 }
 
+
 function formSubmit() {
-  $('form').submit(function(event) {
+  $('#comment_form').submit(function(event) {
+
     //prevent form from submitting the default way
     event.preventDefault();
-    const values = $(this).serialize();
-    const recipeId = parseInt(document.getElementById('showComments').name, 10)
-    const posting = $.post('/recipes/' + recipeId + '/comments', values);
+    let values = $(this).serialize();
+    let recipeId = parseInt(document.getElementById('showComments').name, 10)
+    let posting = $.post('/recipes/' + recipeId + '/comments', values);
     posting.done(function(recipe) {
       $("#commentBody").text(recipe["body"]);
     });
