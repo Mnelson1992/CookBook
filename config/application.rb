@@ -1,5 +1,8 @@
 require_relative 'boot'
 
+require 'rack'
+require 'rack/cors'
+
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
