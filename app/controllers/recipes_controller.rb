@@ -18,10 +18,10 @@ class RecipesController < ApplicationController
       if @recipe.save
         redirect_to recipe_path(@recipe)
       else
-        render :new
+        render_to :new
       end
     end
-    render json: @recipe, statu: 201
+    render json: @recipe, status: 201
   end
 
   def show
