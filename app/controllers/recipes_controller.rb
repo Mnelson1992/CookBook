@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
 
 
+
   def new
     @recipe = Recipe.new
     #8.times {ingredient = @recipe.ingredients.build}
@@ -16,12 +17,12 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.user = current_user
       if @recipe.save
-        redirect_to recipe_path(@recipe)
+        redirect_to recipes_path
       else
-        render_to :new
+        render :new
       end
     end
-    render json: @recipe, status: 201
+    #render json: @recipe, status: 201
   end
 
   def show
